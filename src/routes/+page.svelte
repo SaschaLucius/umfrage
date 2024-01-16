@@ -26,8 +26,8 @@
 	}
 </script>
 
-<h1>Teilnehmerumfrage {$writableArray.length}</h1>
-<p>Danke für eure Teilnahme</p>
+<h1>Teilnehmerumfrage ({$writableArray.length} Teilnehmer)</h1>
+<h3>Danke für eure Teilnahme</h3>
 
 <div class="button-container">
 	{#each numbers as number, i}
