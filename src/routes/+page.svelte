@@ -10,6 +10,7 @@
 
 	function clicked(i: number) {
 		$writableArray = [...$writableArray, i];
+		printed = false;
 	}
 
 	function print() {
