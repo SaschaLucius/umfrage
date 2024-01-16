@@ -13,9 +13,11 @@
 	}
 
 	function print() {
-		const sum = $writableArray.reduce((a, b) => a + b, 0);
-		avg = sum / $writableArray.length || 0;
-		printed = true;
+		if ($writableArray.length > 0) {
+			const sum = $writableArray.reduce((a, b) => a + b, 0);
+			avg = sum / $writableArray.length || 0;
+			printed = true;
+		}
 	}
 
 	function reset() {
@@ -29,16 +31,18 @@
 
 <div class="button-container">
 	{#each numbers as number, i}
-		<button
-			on:click={() => clicked(i)}
-			class="round"
-			style="margin-right: {i % 3 === 2 ? '0' : '5px'};">{number}</button
-		>
+		<div>
+			<button
+				on:click={() => clicked(i)}
+				class="round"
+				style="margin-right: {i % 3 === 2 ? '0' : '5px'};">{number}</button
+			>
+		</div>
 	{/each}
 </div>
 
-<button on:click={print}>Print</button>
-<button on:click={reset}>Reset</button>
+<button style="font-size: 50px; border-radius: 10%;" on:click={print}>Durchschnitt</button>
+<button style="font-size: 50px; border-radius: 10%;" on:click={reset}>Zurücksetzen</button>
 
 {#if printed}
 	<h1>Durchschnitt: {avg.toFixed(2)}</h1>
@@ -49,6 +53,8 @@
 		border-radius: 50%;
 		margin-bottom: 5px;
 		font-size: 50px;
+		height: 15vh;
+		width: 15vh;
 	}
 
 	.button-container {
