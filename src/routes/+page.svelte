@@ -41,8 +41,8 @@
 	{/each}
 </div>
 
-<button style="font-size: 50px; border-radius: 10%;" on:click={print}>Durchschnitt</button>
-<button style="font-size: 50px; border-radius: 10%;" on:click={reset}>Zurücksetzen</button>
+<button style="font-size: 20px; border-radius: 10%;" on:click={print}>Durchschnitt</button>
+<button style="font-size: 20px; border-radius: 10%;" on:click={reset}>Zurücksetzen</button>
 
 {#if printed}
 	<h1>Durchschnitt: {avg.toFixed(2)}</h1>
@@ -53,8 +53,8 @@
 		border-radius: 50%;
 		margin-bottom: 5px;
 		font-size: 50px;
-		height: 15vh;
-		width: 15vh;
+		height: 20vmin;
+		width: 20vmin;
 	}
 
 	.button-container {
