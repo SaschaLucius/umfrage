@@ -27,35 +27,62 @@
 	}
 </script>
 
-<h1>Teilnehmerumfrage ({$writableArray.length} Teilnehmer)</h1>
-<h3>Danke für eure Teilnahme</h3>
+<div class="flex flex-col items-stretch justify-evenly">
+	<div>
+		<h1 class="text-3xl font-bold underline">
+			Teilnehmerumfrage <br />({$writableArray.length} Teilnehmer)
+		</h1>
+		<h3>Danke für eure Teilnahme</h3>
+	</div>
 
-<div class="button-container">
-	{#each numbers as number, i}
-		<div>
-			<button
-				on:click={() => clicked(i)}
-				class="round"
-				style="margin-right: {i % 3 === 2 ? '0' : '5px'};">{number}</button
-			>
-		</div>
-	{/each}
+	<div class="button-container">
+		{#each numbers as number, i}
+			<div>
+				<button
+					on:click={() => clicked(i)}
+					type="button"
+					class="button variant-filled btn-icon btn-icon-xl">{number}</button
+				>
+			</div>
+		{/each}
+	</div>
+	<br /><br />
+
+	<div>
+		{#if printed}
+			<h1>Durchschnitt: {avg.toFixed(2)}</h1>
+		{/if}
+	</div>
+
+	<div>
+		<button type="button" class="button2 variant-filled btn btn-xl" on:click={print}
+			>Durchschnitt</button
+		>
+		<button type="button" class="button2 variant-filled btn btn-xl" on:click={reset}
+			>Zurücksetzen</button
+		>
+	</div>
 </div>
 
-<button style="font-size: 20px; border-radius: 10%;" on:click={print}>Durchschnitt</button>
-<button style="font-size: 20px; border-radius: 10%;" on:click={reset}>Zurücksetzen</button>
-
-{#if printed}
-	<h1>Durchschnitt: {avg.toFixed(2)}</h1>
-{/if}
-
 <style>
-	.round {
-		border-radius: 50%;
-		margin-bottom: 5px;
-		font-size: 50px;
+	.button {
+		margin: 5px;
+		font-size: 400%;
 		height: 20vmin;
 		width: 20vmin;
+	}
+
+	.button2 {
+		margin: 5px;
+		width: 46vmin;
+	}
+
+	.element-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.button-container {
