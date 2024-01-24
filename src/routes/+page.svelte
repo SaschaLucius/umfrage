@@ -55,11 +55,17 @@
 	</div>
 
 	<div>
-		<button type="button" class="button2 variant-filled btn btn-xl" on:click={print}
-			>Durchschnitt</button
+		<button
+			type="button"
+			data-umami-event="average-button-pressed"
+			class="button2 variant-filled btn btn-xl"
+			on:click={print}>Durchschnitt</button
 		>
-		<button type="button" class="button2 variant-filled btn btn-xl" on:click={reset}
-			>Zurücksetzen</button
+		<button
+			type="button"
+			data-umami-event="reset-button-pressed"
+			class="button2 variant-filled btn btn-xl"
+			on:click={reset}>Zurücksetzen</button
 		>
 	</div>
 </div>
